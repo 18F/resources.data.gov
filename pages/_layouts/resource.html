@@ -1,53 +1,105 @@
 ---
-layout: page
+layout: toc
 ---
-<div class="resource">
-  <div class="resource-main">
-    <h2>Description</h2>
-    {{ page.description | default: "No description provided." | markdownify }}
+<div class="padding-bottom-2">
+  <h1 class="margin-top-0 margin-bottom-0">{{ page.name }}</h1>
 
-    <h2>Details</h2>
-    {{ page.details | default "No details provided." | markdownify }}
-
-    <h2>Examples</h2>
-    {{ page.examples | default: "No examples provided." | markdownify }}
-
+  <div class="grid-row grid-gap display-flex flex-column margin-top-205 padding-bottom-205 border-bottom border-base">
+    <h2 id="overview" class="margin-top-0 text-primary-dark">Overview</h2>
+    <div class="usa-prose">
+      {{ page.description | default: "No description provided." | markdownify }}
+    </div>
   </div>
 
-  <div class="resource-side">
-    <h3>Source</h3>
-    {{ page.source | default "No source provided." | markdownify }}
+  <div class="grid-row grid-gap display-flex margin-top-205 border-bottom border-base no_toc_section">
 
-    <h3>Category</h3>
-    <p>
-      <!-- special case communities -->
-      {% if page.category == "Communities" %}
-        <a href="{{ page.category | slugify | relative_url }}">
-          {{ page.category }}
-        </a>
+    {% if page.format == "" %}
+      {% if page.link == "" %}
+        {% assign column_length = "grid-col-6" %}
       {% else %}
-        {% assign category_slug = page.category | slugify %}
-        <a href="{{ "/resources/" | append: category_slug | relative_url }}">
-          {{ page.category }}
-        </a>
+        {% assign column_length = "grid-col-4" %}
       {% endif %}
-    </p>
-    <h3>Keywords</h3>
-    <p>
-      {% assign tags = page.tags | join: " " | split: "," %}
-      {% for tag in tags %}
-        {% assign slug_tag = tag | slugify %}
-        <a href="{{ "/resources/keywords#" | append: slug_tag | relative_url }}">
-          {{ tag }}
-        </a>
-      {% endfor %}
-    </p>
-    <h3>Format</h3>
-    <p>
-      {% assign slug_format = page.format | slugify %}
-      <a href="{{ "/resources/formats#" | append: slug_format | relative_url }}">
-        {{ page.format }}
-      </a>
-    </p>
+    {% else %}
+      {% assign column_length = "grid-col-3" %}
+    {% endif %}
+
+    <div class="{{ column_length }}">
+      <h3 class="margin-top-0">Source</h3>
+      {{ page.source | default: "No source provided." | markdownify }}
+    </div>
+
+    <div class="{{ column_length }}">
+      <h3 class="margin-top-0">Category</h3>
+      <p>
+        <!-- special case communities -->
+        {% if page.category == "Communities" %}
+          <a href="{{ page.category | slugify | relative_url }}">
+            {{ page.category }}
+          </a>
+        {% else %}
+          {% assign category_slug = page.category | slugify %}
+          <a href="{{ "/resources/" | append: category_slug | relative_url }}">
+            {{ page.category }}
+          </a>
+        {% endif %}
+      </p>
+
+      <h3 class="margin-top-0">Keywords</h3>
+      <p>
+        {% for tag in page.tags %}
+          <div>
+            {% assign slug_tag = tag | slugify %}
+            <a href="{{ "/keywords/" | append: slug_tag | relative_url }}">{{ tag }}</a>{% if forloop.last != true %},{% endif %}
+          </div>
+        {% endfor %}
+      </p>
+    </div>
+
+    {% if page.format != "" %}
+      <div class="{{ column_length }}">
+        <h3 class="margin-top-0">Format</h3>
+        <p>
+          {{ page.format }}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if page.link != "" %}
+      <div class="{{ column_length }}">
+        <h3 class="margin-top-0">External Link</h3>
+        <p>
+          {{ page.link | markdownify }}
+        </p>
+      </div>
+    {% endif %}
   </div>
+
+  <div class="grid-row grid-gap display-flex flex-column margin-top-205 border-bottom border-base">
+    <h2 id="details" class="margin-top-0 margin-bottom-0 text-primary-dark">Details</h2>
+    {{ page.details | default: "No details provided." | markdownify }}
+  </div>
+
+  <div class="grid-row grid-gap display-flex flex-column margin-top-205 border-bottom border-base">
+    <h2 id="examples" class="margin-top-0 margin-bottom-0 text-primary-dark">Examples</h2>
+    {{ page.examples | default: "No examples provided." | markdownify }}
+  </div>
+
+  {% if page.policy_tags != "" %}
+    <div class="grid-row grid-gap display-flex flex-column margin-top-205 border-bottom border-base">
+      <h2 id="policy-references" class="margin-top-0 margin-bottom-0 text-primary-dark">Policy References</h2>
+      <div>
+        <ul>
+          {% for tag in page.policy_tags %}
+            {% assign slug_tag = tag | slugify %}
+            <li>
+              <a href="{{ "/policy_tags/" | append: slug_tag | relative_url }}">
+                {{ tag }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+
 </div>
