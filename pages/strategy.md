@@ -8,7 +8,14 @@ primary_nav_section: Strategy
 secondary_nav:
 - url: https://resources.data.gov/guidance/
   text: Guidance and memoranda
+<<<<<<< HEAD
 - url: https://www.whitehouse.gov/sites/whitehouse.gov/files/omb/circulars/A119/revised_circular_a-119_as_of_1_22.pdf
+=======
+- url: https://obamawhitehouse.archives.gov/omb/circulars_a119/
+  text: Federal Participation in the Development and Use of Voluntary Consensus Standards and in Conformity Assessment Activities
+
+- url: https://obamawhitehouse.archives.gov/omb/circulars_a119/
+>>>>>>> aac40148e4dd96f9a5a64de9455c37fd5ed6a806
   text: Federal Participation in the Development and Use of Voluntary Consensus Standards and in Conformity Assessment Activities
 
 - url: https://www.nist.gov/sites/default/files/documents/2017/01/30/m-12-08_1.pdf
@@ -26,6 +33,7 @@ secondary_nav:
   text: Executive Order 13642 of May 9, 2013 Making Open and Machine Readable the New Default for Government Information
 
 - url: https://project-open-data.cio.gov/implementation-guide/
+<<<<<<< HEAD
   text: Supplemental Guidance on the Implementation of M-13-13 “Open Data Policy – Managing Information as an Asset”
 
 
@@ -56,6 +64,38 @@ guidance/open-data-engagement-guidance.md %}).
 
 ---
 
+=======
+  text: Supplemental Guidance on the Implementation of M-13-13 “Open Data Policy – Managing Information as an Asset” (duplicate?)
+
+
+---
+
+###### (From Resources-Guidance section)
+Memoranda from the Office of Management and Budget on data issues and other
+guidance applicable to federal agencies are provided below.
+
+[Implementation Guidance](https://project-open-data.cio.gov/implementation-guide/) to the Federal Open Data Policy (2013).
+
+[Memorandum on Sharing Data While Protecting Privacy](https://obamawhitehouse.archives.gov/sites/default/files/omb/memoranda/2011/m11-02.pdf).
+
+[Memorandum: Freedom of Information Act (FOIA)](https://www.justice.gov/sites/default/files/ag/legacy/2009/06/24/foia-memo-march2009.pdf).
+
+[Implementation Guide to the Paperwork Reduction Act](https://pra.digital.gov/).
+
+[FOIA.gov](https://www.foia.gov/).
+
+[Data Scientist Titling Guidance](https://www.chcoc.gov/content/data-scientist-titling-guidance).
+
+[CIO Council](https://www.cio.gov/) is the principal interagency forum for
+improving agency practices related to the design, acquisition, development,
+modernization, use, sharing, and performance of Federal information resources.
+
+[Open Data Engagement Guidance]({{ site.baseurl }}{% link
+guidance/open-data-engagement-guidance.md %}).
+
+---
+
+>>>>>>> aac40148e4dd96f9a5a64de9455c37fd5ed6a806
 
 [Federal Data Strategy Principles](https://strategy.data.gov/principles/)
 contains motivational guidelines in the areas of Ethical Governance, Conscious
