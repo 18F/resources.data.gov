@@ -295,7 +295,7 @@ details: >-
   distribution>mediaType | Media Type | required for download URL | No | insert POD default `application/http` |  | Insert default value `application/http` directly into POD record 
 
 
-  ISO 19115 to Project Open Data Metadata Schema v1.1 (POD v1.1) Crosswalk
+  ### ISO 19115 to Project Open Data Metadata Schema v1.1 (POD v1.1) Crosswalk
 
   -------------------------------------------
 
