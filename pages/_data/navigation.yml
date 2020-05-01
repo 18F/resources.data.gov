@@ -1,15 +1,15 @@
 - text: Resources
   children:
+    - text: Case studies & examples
+      url: /categories/case-studies-examples
     - text: Data management & governance
       url: /categories/data-management-governance
     - text: Data tools
       url: /categories/data-tools
-    - text: Skills development
-      url: /categories/skills-development
     - text: Policy
       url: /categories/policy
-    - text: Case studies & examples
-      url: /categories/case-studies-examples
+    - text: Skills development
+      url: /categories/skills-development
 - text: Data standards
   url: /categories/data-standards
 - text: Communities
