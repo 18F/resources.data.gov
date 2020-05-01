@@ -30,10 +30,9 @@ class: home
 
     <div class="desktop:grid-col-9 padding-205">
       <h1 id="browse-by-category" class="margin-top-0 padding-top-2 text-primary-dark">Browse resources by category</h1>
-      <!-- rely on site navigation to guide which resources show up -->
-      {% assign resources = site.data.navigation | where: "text", "Resources" | first %}
-      {% for resource in resources.children %}
-        {% assign category = site.categories | where: "category_name", resource.text | first %}
+
+      {% assign categories = site.categories | sort: "category_name" %}
+      {% for category in categories %}
         {% if category.show_on_front_page %}
           <div class="display-flex flex-column padding-left-0 padding-205 tablet:margin-bottom-0 border-bottom">
             <h2 class="margin-top-0 margin-bottom-0">{{ category.category_name }}</h2>
